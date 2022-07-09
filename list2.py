@@ -1,4 +1,7 @@
 # 王宇鑫创建的学习代码
+# 把防火墙状态信息表存为字典!
+# 注意:一定要考虑很多很多行的可能性
+
 import re
 
 asa_conn = "TCP Student 192.168.189.167:32806 Teacher 137.78.5.128:65247, idle 0:00:00, bytes 74, flags UIO\n\
