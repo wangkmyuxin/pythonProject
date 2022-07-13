@@ -7,7 +7,7 @@ import time
 
 while True:
     http_status = os.popen('netstat -ntlp').read()
-    http_find = re.findall(r'(tcp).*0.0.0.0:(8080).*', http_status)
+    http_find = re.findall(r'(tcp).*(8080).*', http_status)
     if http_find == []:
         time.sleep(1)
         print('等待一秒重新开始监控！')
