@@ -6,8 +6,9 @@ list2 = ['bbb', 333, 111, 3.14, (4, 5)]
 
 for a in list1:
     if a not in list2:
-        print(str(a) + ' only in lis1')
+        print(str(a) + ' only in list1')
     for b in list2:
-
+        if a == b:
+            print(str(a) + ' in list1 and list2')
 
 
