@@ -5,13 +5,16 @@ import os
 import re
 
 def linux_ssh(ip,username,password,port=22,cmd='ls'):
-    ssh = paramiko.SSHClient()
-    ssh.load_system_host_keys()
-    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(ip, port=port, username=username, password=password, timeout=5, compress=True)
-    stdin, stdout, stderr = ssh.exec_command(cmd)
-    x = stdout.read().decode()
-    return x
+    try:
+        ssh = paramiko.SSHClient()
+        ssh.load_system_host_keys()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        ssh.connect(ip, port=port, username=username, password=password, timeout=5, compress=True)
+        stdin, stdout, stderr = ssh.exec_command(cmd)
+        x = stdout.read().decode()
+        return x
+    except Exception as e:
+        print(ip,连接失败)
 
 def ssh_get_gateway(ip,username,password,port=22):
     ssh = paramiko.SSHClient()
